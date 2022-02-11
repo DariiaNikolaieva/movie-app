@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="body">
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+    <header class="header">
+      <div class="container">
+        <div class="header-container">
+          <nav class="nav">
+            <a class="logo" href="./index.html">
+              <svg class="logo-icon">
+                <use href="./assets/symbol-defs.svg#logo-icon"></use>
+              </svg>
+            </a>
+            <form class="search-form" id="search-form">
+              <div class="input-container">
+                <input
+                autofocus
+                  class="search-input"
+                  type="text"
+                  name="query"
+                  autocomplete="off"
+                  placeholder="Search movie..."
+                />
+                <span class="delete-query">X</span>
+              </div>
+              <button type="submit" class="search-button">Search</button>
+            </form>
+            <div class="theme-switch">
+              <input
+                class="theme-switch-toggle"
+                type="checkbox"
+                name="theme"
+                id="theme-switch-toggle"
+              />
+              <label
+                aria-hidden="true"
+                class="theme-switch-track"
+                for="theme-switch-toggle"
+              >
+              </label>
+              <div aria-hidden="true" class="theme-switch-marker"></div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <ul class="genre-list"></ul>
+        <ul class="movie-list"></ul>
+        <div class="backdrop hide"></div>
+        <div class="modal-container hide" id="sign-in">
+          <div class="modal">
+            <button class="modal-close">X</button>
+            <div class="modal-overview-container"></div>
+          </div>
+        </div>
+        <div class="pagination">
+          <div class="page page-item" id="prev"><<</div>
+          <div class="current page-item" id="current">1</div>
+          <div class="page page-item" id="next">>></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-container">
+          <div class="developer_data">
+            <p class="footer_year"><span>© </span>2022</p>
+            <a href="https://github.com/DariiaNikolaieva" target="_blank"
+              >Dariia Nikolaieva</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+    <script src="./js/getMovies.js"></script>
+    <script src="./js/showMovies.js"></script>
+    <script src="./js/searchMovies.js"></script>
+    <script src="./js/searchByGenres.js"></script>
+    <script src="./js/getMovieById.js"></script>
+    <script src="./js/showMovieById.js"></script>
+    <script src="./js/showTrailer.js"></script>
+    <script src="./js/modalWindow.js"></script>
+    <script src="./js/pagination.js"></script>
+    <script src="./js/themeToggle.js"></script>
+    <script src="./js/localStorage.js"></script>
+    <script></script>
+  </body>
+</html>
