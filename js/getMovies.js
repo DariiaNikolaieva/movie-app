@@ -29,6 +29,7 @@ function getMovies(url) {
           nxtPage.classList.add("disabled");
         }
 
+        pagination.style.display = 'flex';
         body.scrollIntoView({ behavior: "smooth" });
       } else {
         moviesContainer.innerHTML = `<li class="no-results"><h2>No results found</h2></li>`;
