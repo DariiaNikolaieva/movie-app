@@ -1,41 +1,40 @@
 // функция получения фильмов, работа с пагинацией, плавный скролл
-function getMovies(url) {
+async function getMovies(url) {
   lastUrl = url;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.results.length !== 0) {
-        showMovies(data.results);
-        currentPage = data.page;
-        nextPage = currentPage + 1;
-        previousPage = currentPage - 1;
-        totalPages = data.total_pages;
+  const res = await fetch(url);
+  const data = await res.json();
 
-        crntPage.innerText = currentPage;
+  if (data.results.length !== 0) {
+    showMovies(data.results);
+    currentPage = data.page;
+    nextPage = currentPage + 1;
+    previousPage = currentPage - 1;
+    totalPages = data.total_pages;
 
-        if (currentPage <= 1) {
-          prvsPage.classList.add("disabled");
-          nxtPage.classList.remove("disabled");
-        } else if (currentPage === totalPages) {
-          prvsPage.classList.remove("disabled");
-          nxtPage.classList.add("disabled");
-        } else {
-          prvsPage.classList.remove("disabled");
-          nxtPage.classList.remove("disabled");
-        }
+    crntPage.innerText = currentPage;
 
-        if(totalPages === 1) {
-          prvsPage.classList.add("disabled");
-          nxtPage.classList.add("disabled");
-        }
+    if (currentPage <= 1) {
+      prvsPage.classList.add("disabled");
+      nxtPage.classList.remove("disabled");
+    } else if (currentPage === totalPages) {
+      prvsPage.classList.remove("disabled");
+      nxtPage.classList.add("disabled");
+    } else {
+      prvsPage.classList.remove("disabled");
+      nxtPage.classList.remove("disabled");
+    }
 
-        pagination.style.display = 'flex';
-        body.scrollIntoView({ behavior: "smooth" });
-      } else {
-        moviesContainer.innerHTML = `<li class="no-results"><h2>No results found</h2></li>`;
-        pagination.style.display = 'none';
-      }
-    });
+    if (totalPages === 1) {
+      prvsPage.classList.add("disabled");
+      nxtPage.classList.add("disabled");
+    }
+
+    pagination.style.display = "flex";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    moviesContainer.innerHTML = `<li class="no-results"><h2>No results found</h2></li>`;
+    pagination.style.display = "none";
+  }
 }
 
 // вызов функции получения популярных фильмов при загрузке страницы
