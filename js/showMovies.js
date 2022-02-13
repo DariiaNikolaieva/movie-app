@@ -5,11 +5,12 @@ function showMovies(movies) {
     const { title, poster_path, id } = movie;
     const movieItem = document.createElement("li");
     movieItem.id = id;
-    moviesContainer.appendChild(movieItem);
     movieItem.classList.add("movie-item");
     movieItem.innerHTML = `<img class="movie-poster" src="${poster_path ?
       (POSTER_URL + poster_path) : "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
     }" alt="${title}"><p class="movie-title-main">${title}</p>`;
+    moviesContainer.appendChild(movieItem);
   });
+
   createModal();
 }
