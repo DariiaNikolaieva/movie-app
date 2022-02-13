@@ -9,7 +9,7 @@ function showMovies(movies) {
     movieItem.classList.add("movie-item");
     movieItem.innerHTML = `<img class="movie-poster" src="${poster_path ?
       (POSTER_URL + poster_path) : "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
-    }" alt="${title}">`;
+    }" alt="${title}"><p class="movie-title-main">${title}</p>`;
   });
   createModal();
 }
